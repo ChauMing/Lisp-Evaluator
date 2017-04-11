@@ -9,12 +9,18 @@ const {
   isVAR, 
   isEXE, 
   isFN,
-  isDEF } = util;
+  isDEF,
+  isIF,
+  isTRUE } = util;
+
 
 let code = `
-(define (a b) (b 2))
-(define (b a) a)
-(a b)
+(define (fact n)
+  (if (= n 1)
+      1
+      (+ n (fact (- n 1)))))
+
+(fact 10)
 `;
 
 let ast = parse(code);
@@ -35,6 +41,10 @@ function eval(exps, env) {
   // 如果是变量, 返回变量
   if(isVAR(exps)) {
     return env.get(exps);
+  }
+
+  if(isIF(exps)) {
+    return evalIf(exps, env)
   }
 
   if(isFN(exps)) {
@@ -89,7 +99,7 @@ function evalDef(exps, env) {
 
   } else { // 定义变量
     if(value.length === 1) {
-      return env.set(key, eval(value, env))
+      return env.set(key, eval(value[0], env))
     }
     throw new Error(`define ${key} error`);
   }
@@ -120,4 +130,28 @@ function evalFn(fn, args) {
 
   return result.pop();
 
+}
+
+/**
+ * 
+ * @param {Node[if]} exp 
+ * @param {*} env 
+ */
+function evalIf(exp, env) {
+  let condition = exp.childNodes[1];
+  let trueExp = exp.childNodes[2];
+  let falseExp = exp.childNodes.slice(3);
+
+  if(!(condition || trueExp || falseExp)) {
+    return console.error('if 语句有问题');
+  }
+
+  if(isTRUE(eval(condition, env))) {
+    return eval(trueExp, env);
+  } else {
+    let results = falseExp.map((exp) => {
+      return eval(exp, env);
+    })
+    return results.pop();
+  }
 }
