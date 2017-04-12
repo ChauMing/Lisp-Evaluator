@@ -1,6 +1,21 @@
 # Lisp-Evaluator
 Lisp Evaluator 
 
+实现了 Lisp 的一些特性
+
+### TL;DR
+
+```shell
+node ./bin/exec.js /your/file
+```
+
+example
+
+```shell
+node ./bin/exec.js ./test/test.scm
+```
+
+
 ### feature
 
 + 数学运算符 + - * /
@@ -8,6 +23,7 @@ Lisp Evaluator
   ```lisp
   (+ 1 1 (- 1 2 ) (* 3 4)) ;13
   ```
+  ​
 
 + 比较运算`=, <, > , >=, <=`
 
@@ -23,6 +39,7 @@ Lisp Evaluator
   (define a 1) a ; 1
   (define a (+ 1 1)) ;2
   ```
+  ​
 
 + 函数定义
 
@@ -33,6 +50,7 @@ Lisp Evaluator
     (+ (squares x) (squares y)))
   (sum-of-squares 3 4) ;25
   ```
+  ​
 
 + 闭包
 
@@ -43,6 +61,7 @@ Lisp Evaluator
   (define b (a))
   (b) ;2
   ```
+  ​
 
 + 高阶函数
 
@@ -51,6 +70,7 @@ Lisp Evaluator
   (define (fn arg) (* 10 arg))
   (fun fn) ;20
   ```
+  ​
 
 + 递归调用
 
@@ -65,7 +85,8 @@ Lisp Evaluator
 
 
 
-### Todo
+
+### TODO
 
 - [ ] 字符
 
