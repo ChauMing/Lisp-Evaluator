@@ -39,7 +39,10 @@ node ./bin/exec.js ./test/test.scm
   (define a 1) a ; 1
   (define a (+ 1 1)) ;2
   ```
+
   ​
+
++ `cons`, `cdr`, `car`
 
 + 函数定义
 
@@ -94,12 +97,14 @@ node ./bin/exec.js ./test/test.scm
 - [ ] 符号
 
 
-- [ ] cons 
+- [x] cons 
 
 
 - [ ] list
 
 
 - [ ] lambda
+
+- [ ] rest 参数
 
       ​
