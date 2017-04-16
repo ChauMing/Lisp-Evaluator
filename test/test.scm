@@ -1,6 +1,3 @@
-(define (fact n)
-  (if (= n 1)
-      1
-      (+ n (fact (- n 1)))))
-
-(fact 9)
+(define c
+  (cons 1 2))
+c
