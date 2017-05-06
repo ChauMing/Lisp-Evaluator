@@ -1,0 +1,32 @@
+{
+  "name": "lisp-evaluator",
+  "version": "1.0.0",
+  "description": "lisp evaluator",
+  "main": "index.js",
+  "bin": {
+    "le-exec": "node exec.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./bin/exec.js ./test/test.scm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChauMing/Lisp-Evaluator.git"
+  },
+  "keywords": [
+    "lisp",
+    "evaluator",
+    "eval",
+    "nodejs",
+    "cli"
+  ],
+  "author": "chauming",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChauMing/Lisp-Evaluator/issues"
+  },
+  "homepage": "https://github.com/ChauMing/Lisp-Evaluator#readme"
+}
